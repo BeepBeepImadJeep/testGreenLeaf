@@ -1,0 +1,48 @@
+@use "sass:math";
+
+/**
+* Подключение шрифтов локально из папки "./src/fonts"
+*/
+@import "config/fonts";
+
+/** Подключение переменных */
+@import "config/root";
+@import "config/vars";
+
+/**
+* Подключение sass function и mixins и extends стилей
+*/
+@import "config/functions";
+@import "config/mixins";
+@import "config/placeholders";
+
+/** Обнуление */
+@import "config/reset";
+
+/**
+* Библиотеки
+* раскомментировать для использования
+*/
+
+
+/**
+* Подключение custom scrollbar для всего сайта
+*/
+@import "config/scrollbar";
+
+/**
+* Общие параметры, шаблоны(заготовки) и вспомогательные классы
+*/
+@import "config/base";
+
+/**
+* Подключение стилей отдельных блоков и секций
+*/
+@import "components/header";
+@import "components/breadcrumbs";
+@import "components/banner";
+@import "components/news";
+@import "components/filter";
+@import "components/quiz";
+@import "components/video";
+@import "components/footer";

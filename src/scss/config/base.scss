@@ -1,0 +1,63 @@
+@import "functions";
+@import "mixins";
+
+/** Базовые анимации: */
+@import "keyframes";
+
+/*
+* (i) Стили будут применяться ко
+* всем классам содержащим *__container
+* Например header__container, main__container и т.д.
+*/
+[class*="__container"] {
+	margin-inline: auto;
+	max-inline-size: rem($max-width-container);
+	padding-inline: rem($main-offset);
+}
+
+// Стили отзывчивых картинок (IBG)
+.ibg {
+	position: relative;
+
+	img {
+		position: absolute;
+		inset-block-start: 0;
+		inset-inline-start: 0;
+		object-fit: cover;
+		block-size: 100%;
+		inline-size: 100%;
+	}
+
+	&_contain {
+		img {
+			object-fit: contain;
+		}
+	}
+}
+
+// Оболочка
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-block-size: 100%;
+}
+
+.page {
+	position: relative;
+	flex: 1 1 auto;
+	background-color: var(--bg-color);
+}
+
+// Заголовок
+.caption {
+	&__container {
+		@include adaptive-clamp(margin-top, 64, 32, 1440, 768, 1);
+		@include adaptive-clamp(margin-bottom, 32, 16, 1024, 768, 1);
+	}
+	&__item {
+		font-weight: 600;
+		@include adaptive-clamp(font-size, 32, 24, 1440, 768, 1);
+		line-height: 123%;
+		color: #2B2B2B;
+	}
+}

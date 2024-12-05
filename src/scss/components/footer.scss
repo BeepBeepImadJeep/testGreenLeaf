@@ -1,0 +1,23 @@
+@import "../config/functions";
+@import "../config/mixins";
+
+// Footer
+.footer {
+	@include adaptive-clamp(height, 400, 280, 1024, 768, 1);
+	background: var(--dark-blue-color);
+
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+
+	&__text {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 20px;
+		text-align: center;
+		color: var(--white-color);
+	}
+}

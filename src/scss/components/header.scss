@@ -1,0 +1,94 @@
+@import "../config/functions";
+@import "../config/mixins";
+
+// Header
+.header {
+  inline-size: 100%;
+  background-color: var(--white-color);
+	z-index: 50;
+
+	&__container {
+		display: flex;
+		@include adaptive-clamp(block-size, $header-height, 64, 768, 375, 1);
+		align-items: center;
+    justify-content: flex-end;
+    gap: 0 32px;
+	}
+
+  &__menu {
+    display: flex;
+    gap: 0 32px;
+
+    @include media-mx(768) {
+      opacity: 0;
+      pointer-events: none;
+      transition: .3s ease;
+
+      &.is-open {
+        opacity: 1;
+        pointer-events: all;
+        transition: .3s ease;
+      }
+    }
+
+    .menu__item {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 20px;
+      text-align: center;
+      color: var(--light-blue-color);
+      transition: .3s ease-in-out;
+
+      &:hover {
+        color: var(--night-blue-color);
+        transition: .3s ease-in;;  
+      }
+    }
+  }
+
+  &__burger {
+    display: none;
+
+    @include media-mx(768) {
+      display: block;
+      cursor: pointer;
+      z-index: 5;
+
+      &.is-active {
+        svg {
+          .line-1 {
+            transform: rotate(28deg);
+            transform-origin: 0% 29%;
+            transition: .3s ease;
+          }
+          .line-2 {
+            opacity: 0;
+            transition: .3s ease;
+          }
+          .line-3 {
+            transform: rotate(-27deg);
+            transform-origin: 0% 74%;
+            transition: .3s ease;
+          }
+        }
+      }
+
+      svg {
+        .line-1 {
+          transform: rotate(0);
+          transform-origin: 0% 0%;
+          transition: .3s ease;
+        }
+        .line-2 {
+          opacity: 1;
+          transition: .3s ease;
+        }
+        .line-3 {
+          transform: rotate(0);
+          transform-origin: 0% 0%;
+          transition: .3s ease;
+        }
+      }
+    }
+  }
+}

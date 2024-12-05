@@ -1,0 +1,43 @@
+@import "../config/functions";
+@import "../config/mixins";
+
+// Breadcrumbs
+.breadcrumbs {
+
+  &__container {
+    @include adaptive-clamp(margin-top, 32, 16, 1024, 768, 1);
+  }
+
+  &__list {
+    display: flex;
+    gap: 0 16px;
+  }
+
+  &__item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+
+    &:not(:first-child)::before {
+      content: '';
+      position: relative;
+      display: block;
+      width: 8px;
+      height: 8px;
+      margin-right: 16px;
+      border-radius: 50%;
+      background-color: var(--gray-color);
+    }
+  }
+
+  &__link {
+    font-weight: 600;
+    font-size: rem(16);
+    line-height: rem(20);
+    color: var(--gray-color);
+    
+    &.is-active {
+      color: var(--blue-color);
+    }
+  }
+}
